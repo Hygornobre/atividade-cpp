@@ -11,8 +11,21 @@ struct Produto {
 int main() {
     int quantidade;
 
-    cout << "Digite quantos produtos deseja cadastrar: ";
-    cin >> quantidade;
+    // A quantidade deve ser no minimo 6
+    do {
+        cout << "Digite quantos produtos deseja cadastrar (minimo 6): ";
+        cin >> quantidade;
+
+        if (quantidade < 6) {
+            cout << "Erro! Voce deve cadastrar pelo menos 6 produtos.\n\n";
+        }
+
+        if (quantidade > 100) {
+            cout << "Erro! O maximo permitido e 100 produtos.\n\n";
+        }
+
+    } while (quantidade < 6 || quantidade > 100);
+
     cin.ignore();
 
     Produto produtos[100];
